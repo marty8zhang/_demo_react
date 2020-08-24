@@ -12,6 +12,7 @@ export default class MainNavbar extends React.Component {
           <Nav>
             <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
             <Nav.Link as={NavLink} to="/components-and-props">Components and `props`</Nav.Link>
+            <Nav.Link as={NavLink} to="/state-and-lifecycle">`state` and Lifecycle</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
