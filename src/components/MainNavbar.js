@@ -11,7 +11,7 @@ export default class MainNavbar extends React.Component {
         <Navbar.Collapse id="app-navbar-nav">
           <Nav>
             <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/rendering-elements">Rendering Elements</Nav.Link>
+            <Nav.Link as={NavLink} to="/components-and-props">Components and `props`</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

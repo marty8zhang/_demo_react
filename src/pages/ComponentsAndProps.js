@@ -1,14 +1,14 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { PageTitle } from '../components/PageTitle'
+import { PageTitleWithProps } from '../components/PageTitle'
 
-export default class Home extends React.Component {
+export default class ComponentsAndProps extends React.Component {
   render () {
     return (
       <Container fluid>
         <Row>
           <Col>
-            {PageTitle('Home')}
+            <PageTitleWithProps pageTitle="Components and `props`" />
           </Col>
         </Row>
       </Container>

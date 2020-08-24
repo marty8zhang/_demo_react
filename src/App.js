@@ -3,7 +3,7 @@ import './App.scss'
 import MainNavbar from './components/MainNavbar'
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import RenderingElements from './pages/RenderingElements'
+import ComponentsAndProps from './pages/ComponentsAndProps'
 import NotFound from './pages/NotFound'
 
 function App () {
@@ -17,11 +17,11 @@ function App () {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/rendering-elements">
-            <RenderingElements />
+          <Route path="/components-and-props">
+            <ComponentsAndProps />
           </Route>
           <Route>
-            <NotFound />
+            <NotFound pageTitle="Page Not Found" />
           </Route>
         </Switch>
       </main>
