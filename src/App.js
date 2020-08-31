@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 import ComponentsAndProps from './pages/ComponentsAndProps'
 import StateAndLifecycle from './pages/StateAndLifecycle'
+import HandlingEvents from './pages/HandlingEvents'
 
 function App () {
   return (
@@ -24,7 +25,13 @@ function App () {
           <Route path="/state-and-lifecycle">
             <StateAndLifecycle />
           </Route>
-          // The `NotFound` page must be the last one on the list, otherwise it'll be treated as a match for any URL.
+          <Route path="/handling-events">
+            <HandlingEvents />
+          </Route>
+          {/*
+            * The `NotFound` page must be the last one on the list, because it's basically a match for any URL. Any
+            * `Route` after it hence won't be checked anymore.
+            */}
           <Route>
             <NotFound pageTitle="Page Not Found" />
           </Route>
