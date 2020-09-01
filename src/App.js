@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import ComponentsAndProps from './pages/ComponentsAndProps'
 import StateAndLifecycle from './pages/StateAndLifecycle'
 import HandlingEvents from './pages/HandlingEvents'
+import ListsAndKeys from './pages/ListsAndKeys'
 
 function App () {
   return (
@@ -27,6 +28,9 @@ function App () {
           </Route>
           <Route path="/handling-events">
             <HandlingEvents />
+          </Route>
+          <Route path="/lists-and-keys">
+            <ListsAndKeys />
           </Route>
           {/*
             * The `NotFound` page must be the last one on the list, because it's basically a match for any URL. Any
