@@ -15,6 +15,7 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/state-and-lifecycle">`state` and Lifecycle</Nav.Link>
             <Nav.Link as={NavLink} to="/handling-events">Handling Events</Nav.Link>
             <Nav.Link as={NavLink} to="/lists-and-keys">Lists and Keys</Nav.Link>
+            <Nav.Link as={NavLink} to="/forms">Forms</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
