@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { NavLink } from 'react-router-dom/'
+import NavbarAccountInformation from './NavbarAccountInformation'
 
 export default class MainNavbar extends React.Component {
   render () {
@@ -16,8 +17,15 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/handling-events">Handling Events</Nav.Link>
             <Nav.Link as={NavLink} to="/lists-and-keys">Lists and Keys</Nav.Link>
             <Nav.Link as={NavLink} to="/forms">Forms</Nav.Link>
+            <Nav.Link as={NavLink} to="/lifting-state-up">Lifting `state` Up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <NavbarAccountInformation
+          isLoggedIn={this.props.isLoggedIn}
+          loggedInUsername={this.props.loggedInUsername}
+          onLogIn={this.props.onLogIn}
+          onLogOut={this.props.onLogOut}
+        />
       </Navbar>
     )
   }
