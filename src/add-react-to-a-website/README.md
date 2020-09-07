@@ -1,3 +1,5 @@
+Either example should be open in a browser locally to check.
+
 # index.html
 
 The simplest form to use some React features.

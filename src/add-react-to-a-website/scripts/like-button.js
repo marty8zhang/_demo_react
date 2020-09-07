@@ -11,7 +11,7 @@ class LikeButton extends React.Component {
 
     return React.createElement(
       'button',
-      { onClick: () => this.setState({ liked: !this.state.liked }) },
+      { onClick: () => this.setState(previousState => ({ liked: !previousState.liked })) },
       buttonLabel,
     )
   }

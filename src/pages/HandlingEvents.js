@@ -15,23 +15,23 @@ export default class HandlingEvents extends React.Component {
   }
 
   handleLightSwitch () {
-    this.setState({
-      isLightOn: !this.state.isLightOn,
-    })
+    this.setState(previousState => ({
+      isLightOn: !previousState.isLightOn,
+    }))
   }
 
   // Note: This isn't standardised JS syntax to declare a class method, even though it seems Node (v12+) supports it.
   // `this` inside an ES2015 arrow function is always inherited from the enclosing scope.
   // handleLightSwitchAutoBindingMethodOne = () => {
-  //   this.setState({
-  //     isLightOn: !this.state.isLightOn,
-  //   })
+  //   this.setState(previousState => ({
+  //     isLightOn: !previousState.isLightOn,
+  //   }))
   // }
 
   handleLightSwitchAutoBindingMethodTwo () {
-    this.setState({
-      isLightOn: !this.state.isLightOn,
-    })
+    this.setState(previousState => ({
+      isLightOn: !previousState.isLightOn,
+    }))
   }
 
   handleArgumentsPassingMethodOne (event, id) {

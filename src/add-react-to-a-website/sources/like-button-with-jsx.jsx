@@ -10,7 +10,7 @@ class LikeButton extends React.Component {
     const buttonLabel = this.state.liked ? 'Dislike' : 'Like'
 
     return (
-      <button onClick={() => this.setState({ liked: !this.state.liked }) }>
+      <button onClick={() => this.setState(previousState => ({ liked: !previousState.liked })) }>
         {buttonLabel}
       </button>
     )

@@ -215,7 +215,7 @@ function SubmissionData (props) {
             <strong>I'll bring:</strong> {iWillBring === '' ? 'Nothing' : iWillBring}<br />
             <strong>Region:</strong> {props.region}<br />
             <strong>Number of guests:</strong> {props.numberOfGuests}<br />
-            <strong>Favorite flavours:</strong> {favoriteFlavours}<br />
+            <strong>Favorite flavours:</strong> {favoriteFlavours === '' ? 'None' : favoriteFlavours}<br />
             <strong>Comments:</strong> {props.comments}</p>
         </Col>
       </Row>

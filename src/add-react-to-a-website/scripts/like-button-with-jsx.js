@@ -51,8 +51,10 @@ var LikeButton = /* #__PURE__ */(function (_React$Component) {
       var buttonLabel = this.state.liked ? 'Dislike' : 'Like'
       return /* #__PURE__ */React.createElement('button', {
         onClick: function onClick () {
-          return _this2.setState({
-            liked: !_this2.state.liked,
+          return _this2.setState(function (previousState) {
+            return {
+              liked: !previousState.liked,
+            }
           })
         },
       }, buttonLabel)
