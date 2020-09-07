@@ -10,7 +10,9 @@ export default class Forms extends React.Component {
       isFormSubmitted: false,
       date: new Date(),
       name: '',
-      isGoing: true,
+      isGoing: false,
+      iWillBring: new Set(),
+      region: '', // A valid value, e.g., 'Other', can be provided here to make the option pre-selected.
       numberOfGuests: 2,
       // You can provide an array as the values for a multi-select field.
       favoriteFlavours: [
@@ -30,7 +32,7 @@ export default class Forms extends React.Component {
     let value
 
     if (target.type === 'checkbox') {
-      value = target.checked
+      value = this.handleFormCheckboxChange(target)
     } else if (target.type === 'select-multiple') {
       // `target.options` here is an object with option object(s) as its properties.
       // The `[...obj]` syntax extracts the properties of `obj` and put them into an array.
@@ -44,11 +46,32 @@ export default class Forms extends React.Component {
       value = target.value
     }
 
+    console.log(target.type, target.value, name, value)
+
     this.setState({
       isFormSubmitted: false,
       // The ES2015 computed property name syntax is used here to convert the name string to a proper property key name.
       [name]: value,
     })
+  }
+
+  handleFormCheckboxChange (target) {
+    if (target.name === 'iWillBring') {
+      const iWillBring = this.state.iWillBring
+
+      // This solution requires each checkbox to have a specific `value`.
+      if (target.checked) {
+        iWillBring.add(target.value)
+      } else {
+        iWillBring.delete(target.value)
+      }
+
+      return iWillBring
+    } else {
+      // Note: The example below from the official documentation can only handle the change of a single checkbox, but
+      // not a group of checkboxes.
+      return target.checked
+    }
   }
 
   handleFormSubmission (event) {
@@ -98,6 +121,27 @@ export default class Forms extends React.Component {
                     <Form.Check label="Is going" name="isGoing" checked={this.state.isGoing} onChange={this.handleFormFieldChange} />
                   </Col>
                 </Form.Group>
+                <fieldset>
+                  <Form.Group as={Row}>
+                    <Form.Label as="legend" column lg={3} md={4} sm={5} className="text-right">I'll bring:</Form.Label>
+                    <Col lg={9} md={8} sm={7}>
+                      <Form.Check label="Blanket" value="Blanket" name="iWillBring" id="checkboxes-i-will-bring-blanket" checked={this.state.iWillBring.has('Blanket')} onChange={this.handleFormFieldChange} />
+                      <Form.Check label="Chair" value="Chair" name="iWillBring" id="checkboxes-i-will-bring-chair" checked={this.state.iWillBring.has('Chair')} onChange={this.handleFormFieldChange} />
+                      <Form.Check label="Drinks" value="Drinks" name="iWillBring" id="checkboxes-i-will-bring-drinks" checked={this.state.iWillBring.has('Drinks')} onChange={this.handleFormFieldChange} />
+                      <Form.Check label="Food" value="Food" name="iWillBring" id="checkboxes-i-will-bring-food" checked={this.state.iWillBring.has('Food')} onChange={this.handleFormFieldChange} />
+                    </Col>
+                  </Form.Group>
+                </fieldset>
+                <fieldset>
+                  <Form.Group as={Row}>
+                    <Form.Label as="legend" column lg={3} md={4} sm={5} className="text-right">Region:</Form.Label>
+                    <Col lg={9} md={8} sm={7}>
+                      <Form.Check type="radio" label="WA" value="WA" name="region" id="radios-region-wa" checked={this.state.region === 'WA'} onChange={this.handleFormFieldChange} />
+                      <Form.Check type="radio" label="VIC" value="VIC" name="region" id="radios-region-vic" checked={this.state.region === 'VIC'} onChange={this.handleFormFieldChange} />
+                      <Form.Check type="radio" label="Other" value="Other" name="region" id="radios-region-other" checked={this.state.region === 'Other'} onChange={this.handleFormFieldChange} />
+                    </Col>
+                  </Form.Group>
+                </fieldset>
                 <Form.Group as={Row} controlId="select-number-of-guests">
                   <Form.Label column lg={3} md={4} sm={5} className="text-right">Number of guests:</Form.Label>
                   <Col lg={9} md={8} sm={7}>
@@ -156,6 +200,9 @@ function SubmissionData (props) {
   }).join(', ')
     .replace(/^(.+), ([a-z]+)$/i, '$1 & $2')
 
+  const iWillBring = Array.from(props.iWillBring).join(', ')
+    .replace(/^(.+), ([a-z]+)$/i, '$1 & $2')
+
   return (
     <Container fluid className="bg-info text-white">
       <Row>
@@ -165,6 +212,8 @@ function SubmissionData (props) {
             <strong>Date:</strong> {props.date.toISOString()}<br />
             <strong>Name:</strong> {props.name}<br />
             <strong>Is going:</strong> {props.isGoing ? 'Yes' : 'No'}<br />
+            <strong>I'll bring:</strong> {iWillBring === '' ? 'Nothing' : iWillBring}<br />
+            <strong>Region:</strong> {props.region}<br />
             <strong>Number of guests:</strong> {props.numberOfGuests}<br />
             <strong>Favorite flavours:</strong> {favoriteFlavours}<br />
             <strong>Comments:</strong> {props.comments}</p>
