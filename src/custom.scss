@@ -14,3 +14,12 @@ body {
 .bg-dark {
   color: #EEE;
 }
+
+.navbar-light .navbar-text .button-log-out {
+  color: rgba(0, 0, 0, 0.9)
+}
+.button-log-out {
+  border-width: 0;
+  padding: 0;
+  vertical-align: baseline;
+}

@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
+import LogInOutLink from './LogInOutLink'
 
 export default class NavbarAccountInformation extends React.Component {
   render () {
     return (
       <Navbar.Text>
-        Hello, {this.props.loggedInUsername} (<a
-          href="#"
-          onClick={this.props.isLoggedIn ? this.props.onLogOut : this.props.onLogIn}
-        >Log {this.props.isLoggedIn ? 'out' : 'in'}</a>).
+        Hello, {this.props.loggedInUsername} (<LogInOutLink
+          isLoggedIn={this.props.isLoggedIn}
+          onLogOut={this.props.onLogOut}
+        />).
       </Navbar.Text>
     )
   }

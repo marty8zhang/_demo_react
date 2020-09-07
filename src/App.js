@@ -3,6 +3,7 @@ import './App.scss'
 import MainNavbar from './components/MainNavbar'
 import { Switch, Route } from 'react-router-dom'
 import NotFound from './pages/NotFound'
+import LogIn from './pages/LogIn'
 import Home from './pages/Home'
 import ComponentsAndProps from './pages/ComponentsAndProps'
 import StateAndLifecycle from './pages/StateAndLifecycle'
@@ -16,25 +17,48 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      isLoggedIn: false,
-      loggedInUsername: 'Guest',
+      ...this.initialLogInState,
     }
 
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleLogOut = this.handleLogOut.bind(this)
   }
 
+  get initialLogInState () {
+    return {
+      isLoggedIn: false,
+      loggedInUsername: 'Guest',
+      logInErrors: [],
+    }
+  }
+
   handleLogIn (username, password) {
-    this.setState({
-      isLoggedIn: true,
-      loggedInUsername: 'Marty',
-    })
+    const logInErrors = []
+
+    if (typeof username !== 'string' ||
+        username.trim() === '' ||
+        typeof password !== 'string' ||
+        password !== '123456') {
+      logInErrors.push('The username and password don\'t match.')
+    }
+
+    if (logInErrors.length > 0) {
+      this.setState({
+        ...this.initialLogInState,
+        logInErrors: logInErrors,
+      })
+    } else {
+      this.setState({
+        isLoggedIn: true,
+        loggedInUsername: username.charAt(0).toUpperCase() + username.slice(1),
+        logInErrors: [],
+      })
+    }
   }
 
   handleLogOut () {
     this.setState({
-      isLoggedIn: false,
-      loggedInUsername: 'Guest',
+      ...this.initialLogInState,
     })
   }
 
@@ -51,6 +75,7 @@ export default class App extends React.Component {
         </header>
         <main>
           <Switch>
+            {/* Without `exact` here, the default fuzzy matching behaviour will match any URL to `/`. */}
             <Route path="/" exact>
               <Home />
             </Route>
@@ -73,14 +98,22 @@ export default class App extends React.Component {
               <LiftingStateUp
                 isLoggedIn={this.state.isLoggedIn}
                 loggedInUsername={this.state.loggedInUsername}
+                onLogOut={this.handleLogOut}
+              />
+            </Route>
+            <Route path="/login">
+              <LogIn
+                isLoggedIn={this.state.isLoggedIn}
+                loggedInUsername={this.state.loggedInUsername}
+                logInErrors={this.state.logInErrors}
                 onLogIn={this.handleLogIn}
                 onLogOut={this.handleLogOut}
               />
             </Route>
             {/*
-            * The `NotFound` page must be the last one on the list, because it's basically a match for any URL. Any
-            * `Route` after it hence won't be checked anymore.
-            */}
+              * The `NotFound` page must be the last one on the list, because it's basically a match for any URL. Any
+              * `Route` after it hence won't be checked anymore.
+              */}
             <Route>
               <NotFound pageTitle="Page Not Found" />
             </Route>

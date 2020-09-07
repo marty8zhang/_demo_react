@@ -23,7 +23,6 @@ export default class MainNavbar extends React.Component {
         <NavbarAccountInformation
           isLoggedIn={this.props.isLoggedIn}
           loggedInUsername={this.props.loggedInUsername}
-          onLogIn={this.props.onLogIn}
           onLogOut={this.props.onLogOut}
         />
       </Navbar>

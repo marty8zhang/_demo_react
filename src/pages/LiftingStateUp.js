@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { PageTitleWithProps } from '../components/PageTitle'
+import LogInOutLink from '../components/LogInOutLink'
 
 export default class LiftingStateUp extends React.Component {
   render () {
@@ -16,12 +17,12 @@ export default class LiftingStateUp extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <p>Hello, {this.props.loggedInUsername}. You can <a
-                href="#"
-                onClick={this.props.isLoggedIn ? this.props.onLogOut : this.props.onLogIn}
-              >Log {this.props.isLoggedIn ? 'out' : 'in'} here</a>.</p>
-              <p>Check out the `App`, `MainNavbar`, `NavbarAccountInformation` and `LiftingStateUp` classes to see how you can lift the `state` from `NavbarAccountInformation` and `LiftingStateUp` up to `App`.<br />
-                In other words, check out those classes to see how you can pass on `state`, `handleLogIn()` and `handleLogOut()` from `App` down to `NavbarAccountInformation` and `LiftingStateUp`.</p>
+              <p>Hello, {this.props.loggedInUsername}. You can <LogInOutLink
+                isLoggedIn={this.props.isLoggedIn}
+                onLogOut={this.props.onLogOut}
+              /> here.</p>
+              <p>Check out the `App`, `NavbarAccountInformation`, `LiftingStateUp` and `LogIn` classes to see how you can lift the `state` from `NavbarAccountInformation`, `LiftingStateUp` and `LogIn` up to `App`.<br />
+                In other words, check out those classes to see how you can pass on `state`, `handleLogIn()` and `handleLogOut()` from `App` down to `NavbarAccountInformation`, `LiftingStateUp` and `LogIn`.</p>
             </Col>
           </Row>
         </Container>
