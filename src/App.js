@@ -11,6 +11,7 @@ import HandlingEvents from './pages/HandlingEvents'
 import ListsAndKeys from './pages/ListsAndKeys'
 import Forms from './pages/Forms'
 import LiftingStateUp from './pages/LiftingStateUp'
+import CompositionVsInheritance from './pages/CompositionVsInheritance'
 
 export default class App extends React.Component {
   constructor (props) {
@@ -100,6 +101,9 @@ export default class App extends React.Component {
                 loggedInUsername={this.state.loggedInUsername}
                 onLogOut={this.handleLogOut}
               />
+            </Route>
+            <Route path="/composition-vs-inheritance">
+              <CompositionVsInheritance />
             </Route>
             <Route path="/login">
               <LogIn
