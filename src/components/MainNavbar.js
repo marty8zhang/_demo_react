@@ -20,6 +20,7 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/lifting-state-up">Lifting `state` Up</Nav.Link>
             <Nav.Link as={NavLink} to="/composition-vs-inheritance">Composition vs Inheritance</Nav.Link>
             <Nav.Link as={NavLink} to="/context">Context</Nav.Link>
+            <Nav.Link as={NavLink} to="/error-boundaries">Error Boundaries</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <NavbarAccountInformation

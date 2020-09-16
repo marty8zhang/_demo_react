@@ -14,6 +14,7 @@ import Forms from './pages/Forms'
 import LiftingStateUp from './pages/LiftingStateUp'
 import CompositionVsInheritance from './pages/CompositionVsInheritance'
 import Context from './pages/Context'
+import ErrorBoundaries from './pages/ErrorBoundaries'
 
 export default class App extends React.Component {
   constructor (props) {
@@ -120,6 +121,9 @@ export default class App extends React.Component {
               </Route>
               <Route path="/context">
                 <Context />
+              </Route>
+              <Route path="/error-boundaries">
+                <ErrorBoundaries />
               </Route>
               <Route path="/login">
                 <LogIn
