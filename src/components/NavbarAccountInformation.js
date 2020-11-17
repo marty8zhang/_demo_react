@@ -1,16 +1,33 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import LogInOutLink from './LogInOutLink'
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import PropTypes from 'prop-types';
+import LogInOutLink from './LogInOutLink';
 
 export default class NavbarAccountInformation extends React.Component {
-  render () {
+  render() {
+    const {
+      loggedInUsername,
+      isLoggedIn,
+      onLogOut,
+    } = this.props;
     return (
       <Navbar.Text>
-        Hello, {this.props.loggedInUsername} (<LogInOutLink
-          isLoggedIn={this.props.isLoggedIn}
-          onLogOut={this.props.onLogOut}
-        />).
+        Hello,
+        {' '}
+        {loggedInUsername}
+        {' '}
+        (
+        <LogInOutLink
+          isLoggedIn={isLoggedIn}
+          onLogOut={onLogOut}
+        />
+        ).
       </Navbar.Text>
-    )
+    );
   }
 }
+NavbarAccountInformation.propTypes = {
+  loggedInUsername: PropTypes.string.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  onLogOut: PropTypes.func.isRequired,
+};

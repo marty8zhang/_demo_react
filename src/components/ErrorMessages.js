@@ -1,14 +1,16 @@
-import React from 'react'
+import React from 'react';
+import PropTypes, { string } from 'prop-types';
 
 export default class ErrorMessages extends React.Component {
-  render () {
-    if (this.props.logInErrors.length === 0) {
-      return null
+  render() {
+    const { logInErrors } = this.props;
+    if (logInErrors.length === 0) {
+      return null;
     }
 
-    const errorListItems = this.props.logInErrors.map((errorMessage, index) =>
-      <li key={index}>{errorMessage}</li>,
-    )
+    const errorListItems = logInErrors.map(
+      (errorMessage, index) => <li key={index}>{errorMessage}</li>, // eslint-disable-line
+    );
 
     return (
       <>
@@ -17,6 +19,9 @@ export default class ErrorMessages extends React.Component {
           {errorListItems}
         </ul>
       </>
-    )
+    );
   }
 }
+ErrorMessages.propTypes = {
+  logInErrors: PropTypes.arrayOf(string).isRequired,
+};

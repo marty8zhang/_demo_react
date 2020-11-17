@@ -1,9 +1,26 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { PageTitleWithProps } from '../components/PageTitle'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { PageTitleWithProps } from '../components/PageTitle';
+
+function NumberList({ numbers }) {
+  /* `key` is a special string attribute you need to include when creating lists of elements. */
+  const lis = numbers.map((number) => (
+    <li key={number}>
+      {number}
+    </li>
+  ));
+
+  return (
+    <ul>{lis}</ul>
+  );
+}
+NumberList.propTypes = {
+  numbers: PropTypes.node.isRequired,
+};
 
 export default class ListsAndKeys extends React.Component {
-  render () {
+  render() {
     return (
       <>
         <Container fluid>
@@ -21,19 +38,6 @@ export default class ListsAndKeys extends React.Component {
           </Row>
         </Container>
       </>
-    )
+    );
   }
-}
-
-function NumberList (props) {
-  const lis = props.numbers.map(number =>
-    // `key` is a special string attribute you need to include when creating lists of elements.
-    <li key={number}>
-      {number}
-    </li>,
-  )
-
-  return (
-    <ul>{lis}</ul>
-  )
 }

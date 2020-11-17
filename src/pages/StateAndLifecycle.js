@@ -1,10 +1,10 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { PageTitleWithProps } from '../components/PageTitle'
-import Clock from '../components/Clock'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { PageTitleWithProps } from '../components/PageTitle';
+import Clock from '../components/Clock';
 
 export default class StateAndLifecycle extends React.Component {
-  render () {
+  render() {
     return (
       <>
         <Container fluid>
@@ -17,11 +17,16 @@ export default class StateAndLifecycle extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <p>The current time is <Clock />.</p>
+              <p>
+                The current time is
+                {' '}
+                <Clock />
+                .
+              </p>
             </Col>
           </Row>
         </Container>
       </>
-    )
+    );
   }
 }

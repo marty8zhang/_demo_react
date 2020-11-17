@@ -1,18 +1,24 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { PageTitleWithProps } from '../components/PageTitle'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { PageTitleWithProps } from '../components/PageTitle';
 
 export default class NotFound extends React.Component {
-  render () {
+  render() {
+    const { pageTitle } = this.props;
+
     return (
       <Container fluid>
         <Row>
           <Col>
-            <PageTitleWithProps pageTitle={this.props.pageTitle} />
+            <PageTitleWithProps pageTitle={pageTitle} />
             <p>Oops! The requested page cannot be found.</p>
           </Col>
         </Row>
       </Container>
-    )
+    );
   }
 }
+NotFound.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+};

@@ -1,9 +1,9 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { PageTitle } from '../components/PageTitle'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { PageTitle } from '../components/PageTitle';
 
 export default class Home extends React.Component {
-  render () {
+  render() {
     return (
       <Container fluid>
         <Row>
@@ -12,6 +12,6 @@ export default class Home extends React.Component {
           </Col>
         </Row>
       </Container>
-    )
+    );
   }
 }

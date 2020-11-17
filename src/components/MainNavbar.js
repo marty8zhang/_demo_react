@@ -1,11 +1,18 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import { NavLink } from 'react-router-dom/'
-import NavbarAccountInformation from './NavbarAccountInformation'
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-router-dom/';
+import PropTypes from 'prop-types';
+import NavbarAccountInformation from './NavbarAccountInformation';
 
 export default class MainNavbar extends React.Component {
-  render () {
+  render() {
+    const {
+      isLoggedIn,
+      loggedInUsername,
+      onLogOut,
+    } = this.props;
+
     return (
       <Navbar expand="lg">
         <Navbar.Toggle aria-controls="app-navbar-nav" />
@@ -24,11 +31,16 @@ export default class MainNavbar extends React.Component {
           </Nav>
         </Navbar.Collapse>
         <NavbarAccountInformation
-          isLoggedIn={this.props.isLoggedIn}
-          loggedInUsername={this.props.loggedInUsername}
-          onLogOut={this.props.onLogOut}
+          isLoggedIn={isLoggedIn}
+          loggedInUsername={loggedInUsername}
+          onLogOut={onLogOut}
         />
       </Navbar>
-    )
+    );
   }
 }
+MainNavbar.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  loggedInUsername: PropTypes.string.isRequired,
+  onLogOut: PropTypes.func.isRequired,
+};

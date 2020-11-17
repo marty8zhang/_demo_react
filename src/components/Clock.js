@@ -1,36 +1,44 @@
-import React from 'react'
+import React from 'react';
 
 export default class Clock extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       date: new Date(),
-    }
+    };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.intervalId = setInterval(
       () => this.tick(),
       1000,
-    )
+    );
   }
 
-  componentWillUnmount () {
-    clearInterval(this.intervalId)
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
-  tick () {
-    // `setState()` lets React know that the component's state has been updated and hence triggers a new `render()`
-    // call on the same component.
+  tick() {
+    /*
+     * `setState()` lets React know that the component's state has been updated and hence triggers
+     * a new `render()` call on the same component.
+     */
     this.setState({
       date: new Date(),
-    })
+    });
   }
 
-  render () {
+  render() {
+    const { date } = this.state;
+
     return (
-      <span className="clock">{this.state.date.toLocaleTimeString()} {this.state.date.toLocaleDateString()}</span>
-    )
+      <span className="clock">
+        {date.toLocaleTimeString()}
+        {' '}
+        {date.toLocaleDateString()}
+      </span>
+    );
   }
 }
