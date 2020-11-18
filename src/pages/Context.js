@@ -22,14 +22,21 @@ export default class Context extends React.Component {
             <Col>
               <p>
                 Hello,
+                {' '}
                 {logInContext.loggedInUsername}
                 . You can
+                {' '}
                 <LogInOutLink
                   isLoggedIn={logInContext.isLoggedIn}
                   onLogOut={logInContext.onLogOut}
                 />
                 {' '}
                 here.
+              </p>
+              <p>
+                The `contextType` property of a class can be assigned a `Context` object created by
+                `React.createContext()`. This lets you consume the nearest current `Context` value
+                by using `this.context`.
               </p>
             </Col>
           </Row>
@@ -40,17 +47,22 @@ export default class Context extends React.Component {
               <Row>
                 <Col>
                   <p>
+                    Using the React `&lt;Context.Consumer /&gt;` component is another way to
+                    subscribe to `Context` changes. Its content should be a function taking the
+                    current `Context` value as the only parameter.
+                  </p>
+                  <p>
+                    Again,
+                    {' '}
                     {logInContextTwo.loggedInUsername}
-                    , &lt;Context.Consumer /&gt; is another way to use the context value.
-                    <br />
-                    You can
+                    , you can
                     {' '}
                     <LogInOutLink
                       isLoggedIn={logInContextTwo.isLoggedIn}
                       onLogOut={logInContextTwo.onLogOut}
                     />
                     {' '}
-                    here.
+                    here too.
                   </p>
                 </Col>
               </Row>
@@ -64,4 +76,4 @@ export default class Context extends React.Component {
 
 Context.contextType = LogInContext;
 
-LogInContext.displayName = 'LogInContext';
+LogInContext.displayName = 'LogInContextDisplayNameForDeveloperTools';
