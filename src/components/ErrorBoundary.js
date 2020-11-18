@@ -31,7 +31,6 @@ export default class ErrorBoundary extends React.Component {
     const { hasFatalError } = this.state;
     if (hasFatalError) {
       const { fatalError } = this.state;
-      const error = fatalError;
 
       return (
         <>
@@ -40,11 +39,11 @@ export default class ErrorBoundary extends React.Component {
             <strong>Details:</strong>
             <br />
             <strong>
-              {error.name}
+              {fatalError.name}
               :
             </strong>
             {' '}
-            {error.message}
+            {fatalError.message}
           </p>
         </>
       );

@@ -18,16 +18,21 @@ class FatalErrors extends React.Component {
     this.testFunction();
 
     // setTimeout(
-    //   () => { throw new Error("Oops! There is a fatal error in `setTimeout` callback, which won't be gracefully handled.") },
+    //   () => {
+    //     throw new Error(
+    //       "Oops! There is a fatal error in `setTimeout` callback, which won't be gracefully handled.",
+    //     );
+    //   },
     //   1000,
-    // )
+    // );
 
     // throw new Error('Oops! There is a fatal error in `FatalErrors.constructor()`.');
   }
 
   static getDerivedStateFromProps(props, state) {
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.getDerivedStateFromProps()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.getDerivedStateFromProps()`.');
 
+    // eslint-disable-next-line
     return state;
   }
 
@@ -36,24 +41,27 @@ class FatalErrors extends React.Component {
       renderCount: 1,
     });
 
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.componentDidMount()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.componentDidMount()`.');
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.shouldComponentUpdate()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.shouldComponentUpdate()`.');
 
+    // eslint-disable-next-line
     return true;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.getSnapshotBeforeUpdate()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.getSnapshotBeforeUpdate()`.');
 
+    // eslint-disable-next-line
     return null;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log(this.state);
 
+    const { renderCount } = this.state;
     /*
      * Indicate that `this.setState()` in `componentDidMount()` triggered the current update.
      */
@@ -63,7 +71,7 @@ class FatalErrors extends React.Component {
          * Note: `componentDidUpdate()` can only happen after the second `render()` call, so
          * technically speaking `render()` count in this method should be `2`.
          */
-        renderCount: prevState.renderCount + 1,
+        renderCount: renderCount + 1,
       });
     }
 
@@ -72,12 +80,12 @@ class FatalErrors extends React.Component {
      * effect yet.
      */
     // throw new Error(
-    //   'Oops! There is a fatal error in `FatalErrors.componentDidUpdate()`. `render()` Count: ' + this.state.renderCount,
-    // )
+    //   `Oops! There is a fatal error in \`FatalErrors.componentDidUpdate()\`. \`render()\` Count: ${renderCount}`,
+    // );
   }
 
   componentWillUnmount() {
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.componentWillUnmount()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.componentWillUnmount()`.');
   }
 
   handleFormFieldChange(event) {
@@ -87,21 +95,24 @@ class FatalErrors extends React.Component {
       [target.name]: target.value,
     });
 
-    // throw new Error("Oops! There is a fatal error in `FatalErrors.handleFormFieldChange()`, which won't be gracefully handled.")
+    throw new Error(
+      "Oops! There is a fatal error in `FatalErrors.handleFormFieldChange()`, which won't be gracefully handled.",
+    );
   }
 
   testFunction() {
-    // throw new Error('Oops! There is a fatal error in `FatalErrors.testFunction()`.')
+    // throw new Error('Oops! There is a fatal error in `FatalErrors.testFunction()`.');
   }
 
   render() {
     const { renderCount, name } = this.state;
     if (renderCount === 0) {
-      // throw new Error('Oops! There is a fatal error in `FatalErrors.render()` #1.')
+      // throw new Error('Oops! There is a fatal error in `FatalErrors.render()` #1.');
     } else {
-      // throw new Error('Oops! There is a fatal error in `FatalErrors.render()` #2.')
+      // throw new Error('Oops! There is a fatal error in `FatalErrors.render()` #2.');
     }
 
+    // eslint-disable-next-line
     return (
       <>
         <p>You&apos;ll see this message if there is no fatal error thrown.</p>
