@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import MainNavbar from './components/MainNavbar';
 import { INITIAL_LOG_IN_STATE, LogInContext } from './contexts/LogInContext';
 import NotFound from './pages/NotFound';
@@ -87,72 +87,74 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <LogInContext.Provider value={logInContext}>
-          <header className="App-header">
-            <MainNavbar
-              isLoggedIn={isLoggedIn}
-              loggedInUsername={loggedInUsername}
-              onLogIn={this.handleLogIn}
-              onLogOut={this.handleLogOut}
-            />
-          </header>
-          <main>
-            <Switch>
-              {/*
+          <BrowserRouter>
+            <header className="App-header">
+              <MainNavbar
+                isLoggedIn={isLoggedIn}
+                loggedInUsername={loggedInUsername}
+                onLogIn={this.handleLogIn}
+                onLogOut={this.handleLogOut}
+              />
+            </header>
+            <main>
+              <Switch>
+                {/*
                 * Without `exact` here, the default fuzzy matching behaviour will match any URL
                 * to `/`.
                 */}
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/components-and-props">
-                <ComponentsAndProps />
-              </Route>
-              <Route path="/state-and-lifecycle">
-                <StateAndLifecycle />
-              </Route>
-              <Route path="/handling-events">
-                <HandlingEvents />
-              </Route>
-              <Route path="/lists-and-keys">
-                <ListsAndKeys />
-              </Route>
-              <Route path="/forms">
-                <Forms />
-              </Route>
-              <Route path="/lifting-state-up">
-                <LiftingStateUp
-                  isLoggedIn={isLoggedIn}
-                  loggedInUsername={loggedInUsername}
-                  onLogOut={this.handleLogOut}
-                />
-              </Route>
-              <Route path="/composition-vs-inheritance">
-                <CompositionVsInheritance />
-              </Route>
-              <Route path="/context">
-                <Context />
-              </Route>
-              <Route path="/error-boundaries">
-                <ErrorBoundaries />
-              </Route>
-              <Route path="/login">
-                <LogIn
-                  isLoggedIn={isLoggedIn}
-                  loggedInUsername={loggedInUsername}
-                  logInErrors={logInErrors}
-                  onLogIn={this.handleLogIn}
-                  onLogOut={this.handleLogOut}
-                />
-              </Route>
-              {/*
+                <Route path="/" exact>
+                  <Home />
+                </Route>
+                <Route path="/components-and-props">
+                  <ComponentsAndProps />
+                </Route>
+                <Route path="/state-and-lifecycle">
+                  <StateAndLifecycle />
+                </Route>
+                <Route path="/handling-events">
+                  <HandlingEvents />
+                </Route>
+                <Route path="/lists-and-keys">
+                  <ListsAndKeys />
+                </Route>
+                <Route path="/forms">
+                  <Forms />
+                </Route>
+                <Route path="/lifting-state-up">
+                  <LiftingStateUp
+                    isLoggedIn={isLoggedIn}
+                    loggedInUsername={loggedInUsername}
+                    onLogOut={this.handleLogOut}
+                  />
+                </Route>
+                <Route path="/composition-vs-inheritance">
+                  <CompositionVsInheritance />
+                </Route>
+                <Route path="/context">
+                  <Context />
+                </Route>
+                <Route path="/error-boundaries">
+                  <ErrorBoundaries />
+                </Route>
+                <Route path="/login">
+                  <LogIn
+                    isLoggedIn={isLoggedIn}
+                    loggedInUsername={loggedInUsername}
+                    logInErrors={logInErrors}
+                    onLogIn={this.handleLogIn}
+                    onLogOut={this.handleLogOut}
+                  />
+                </Route>
+                {/*
                 * The `NotFound` page must be the last one on the list, because it's basically
                 * a match for any URL. Any `Route` after it hence won't be checked anymore.
                 */}
-              <Route>
-                <NotFound pageTitle="Page Not Found" />
-              </Route>
-            </Switch>
-          </main>
+                <Route>
+                  <NotFound pageTitle="Page Not Found" />
+                </Route>
+              </Switch>
+            </main>
+          </BrowserRouter>
         </LogInContext.Provider>
       </div>
     );
