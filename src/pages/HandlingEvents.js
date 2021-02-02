@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Container, Row, Col, Button,
 } from 'react-bootstrap';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 
 export default class HandlingEvents extends React.Component {
   constructor(props) {
@@ -85,7 +85,7 @@ export default class HandlingEvents extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Handling Events" />
+              <FunctionComponentPageTitle pageTitle="Handling Events" />
             </Col>
           </Row>
         </Container>

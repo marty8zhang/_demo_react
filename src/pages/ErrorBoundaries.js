@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Container, Row, Col, Form,
 } from 'react-bootstrap';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 class FatalErrors extends React.Component {
@@ -141,7 +141,7 @@ export default class ErrorBoundaries extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Error Boundaries" />
+              <FunctionComponentPageTitle pageTitle="Error Boundaries" />
             </Col>
           </Row>
         </Container>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 
 function NumberList({ numbers }) {
   /* `key` is a special string attribute you need to include when creating lists of elements. */
@@ -26,7 +26,7 @@ export default class ListsAndKeys extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Lists and Keys" />
+              <FunctionComponentPageTitle pageTitle="Lists and Keys" />
             </Col>
           </Row>
         </Container>

@@ -3,7 +3,7 @@ import {
   Container, Row, Col, Form, Button,
 } from 'react-bootstrap';
 import PropTypes, { string } from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 
 function SubmissionData({
   isFormSubmitted,
@@ -191,7 +191,7 @@ export default class Forms extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Forms" />
+              <FunctionComponentPageTitle pageTitle="Forms" />
             </Col>
           </Row>
         </Container>

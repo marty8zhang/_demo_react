@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 
 export default class NotFound extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class NotFound extends React.Component {
       <Container fluid>
         <Row>
           <Col>
-            <PageTitleWithProps pageTitle={pageTitle} />
+            <FunctionComponentPageTitle pageTitle={pageTitle} />
             <p>Oops! The requested page cannot be found.</p>
           </Col>
         </Row>

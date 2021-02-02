@@ -3,7 +3,7 @@ import {
   Container, Row, Col, Form, Button,
 } from 'react-bootstrap';
 import PropTypes, { string } from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 import ErrorMessages from '../components/ErrorMessages';
 
 export default class LogIn extends React.Component {
@@ -108,7 +108,7 @@ export default class LogIn extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Log in" />
+              <FunctionComponentPageTitle pageTitle="Log in" />
             </Col>
           </Row>
         </Container>

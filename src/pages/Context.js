@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 import LogInOutLink from '../components/LogInOutLink';
 import { LogInContext } from '../contexts/LogInContext';
 
@@ -13,7 +13,7 @@ export default class Context extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Context" />
+              <FunctionComponentPageTitle pageTitle="Context" />
             </Col>
           </Row>
         </Container>

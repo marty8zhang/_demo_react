@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PageTitle(name) {
+function NoComponentPageTitle(name) {
   return <p className="page-title">{name}</p>;
 }
 
-function PageTitleWithProps(props) {
+function FunctionComponentPageTitle(props) {
   const { pageTitle } = props;
 
   return <p className="page-title">{pageTitle}</p>;
 }
-PageTitleWithProps.propTypes = {
+FunctionComponentPageTitle.propTypes = {
   pageTitle: PropTypes.string.isRequired,
 };
 
-export { PageTitle, PageTitleWithProps };
+export { NoComponentPageTitle, FunctionComponentPageTitle };

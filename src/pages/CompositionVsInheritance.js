@@ -3,7 +3,7 @@ import {
   Container, Row, Col, ListGroup,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 
 function ContainmentPropsChildren({ children }) {
   return (
@@ -107,7 +107,7 @@ export default class CompositionVsInheritance extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Composition vs Inheritance" />
+              <FunctionComponentPageTitle pageTitle="Composition vs Inheritance" />
             </Col>
           </Row>
         </Container>

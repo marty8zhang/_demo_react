@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 import LogInOutLink from '../components/LogInOutLink';
 
 export default class LiftingStateUp extends React.Component {
@@ -17,7 +17,7 @@ export default class LiftingStateUp extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="Lifting `state` Up" />
+              <FunctionComponentPageTitle pageTitle="Lifting `state` Up" />
             </Col>
           </Row>
         </Container>

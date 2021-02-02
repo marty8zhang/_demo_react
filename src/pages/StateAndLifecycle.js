@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { PageTitleWithProps } from '../components/PageTitle';
+import { FunctionComponentPageTitle } from '../components/PageTitle';
 import Clock from '../components/Clock';
 
 export default class StateAndLifecycle extends React.Component {
@@ -10,7 +10,7 @@ export default class StateAndLifecycle extends React.Component {
         <Container fluid>
           <Row>
             <Col>
-              <PageTitleWithProps pageTitle="`state` and Lifecycle" />
+              <FunctionComponentPageTitle pageTitle="`state` and Lifecycle" />
             </Col>
           </Row>
         </Container>
