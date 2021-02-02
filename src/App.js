@@ -59,7 +59,6 @@ export default class App extends React.Component {
       ...logInState,
       logInContext: {
         ...logInState,
-        onLogIn: this.handleLogIn,
         onLogOut: this.handleLogOut,
       },
     });
@@ -71,7 +70,6 @@ export default class App extends React.Component {
       logInContext: {
         ...INITIAL_LOG_IN_STATE,
         onLogIn: this.handleLogIn,
-        onLogOut: this.handleLogOut,
       },
     });
   }
@@ -92,7 +90,6 @@ export default class App extends React.Component {
               <MainNavbar
                 isLoggedIn={isLoggedIn}
                 loggedInUsername={loggedInUsername}
-                onLogIn={this.handleLogIn}
                 onLogOut={this.handleLogOut}
               />
             </header>
