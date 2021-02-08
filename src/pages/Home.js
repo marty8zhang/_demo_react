@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { NoComponentPageTitle } from '../components/PageTitle';
+import { NonComponentPageTitle } from '../components/PageTitle';
 
 export default class Home extends React.Component {
   render() {
@@ -8,7 +8,7 @@ export default class Home extends React.Component {
       <Container fluid>
         <Row>
           <Col>
-            {NoComponentPageTitle('Home')}
+            {NonComponentPageTitle('Home')}
           </Col>
         </Row>
       </Container>
