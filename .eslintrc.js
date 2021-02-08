@@ -32,10 +32,21 @@ module.exports = {
     'no-undef': 0,
     'no-unused-expressions': 0,
     'no-unused-vars': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'react/jsx-filename-extension': [1,
       {
         extensions: [
           '.tsx',
+          '.ts',
           '.jsx',
           '.js',
         ],
@@ -45,5 +56,13 @@ module.exports = {
     'react/prefer-stateless-function': 'warn',
     'no-use-before-define': 0,
     '@typescript-eslint/no-use-before-define': 1,
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        moduleDirectory: ['node_modules', 'src/'],
+      },
+    },
   },
 };
