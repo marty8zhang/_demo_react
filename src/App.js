@@ -16,6 +16,7 @@ import CompositionVsInheritance from './pages/CompositionVsInheritance';
 import Context from './pages/Context';
 import ErrorBoundaries from './pages/ErrorBoundaries';
 import ForwardingRefs from './pages/ForwardingRefs';
+import Fragments from './pages/Fragments';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -136,6 +137,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/forwarding-refs">
                   <ForwardingRefs />
+                </Route>
+                <Route path="/fragments">
+                  <Fragments />
                 </Route>
                 <Route path="/login">
                   <LogIn

@@ -29,6 +29,7 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/context">Context</Nav.Link>
             <Nav.Link as={NavLink} to="/error-boundaries">Error Boundaries</Nav.Link>
             <Nav.Link as={NavLink} to="/forwarding-refs">Forwarding `ref`s</Nav.Link>
+            <Nav.Link as={NavLink} to="/fragments">`Fragment`s</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <NavbarAccountInformation
