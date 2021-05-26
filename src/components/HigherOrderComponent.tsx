@@ -1,5 +1,6 @@
 import React, { ComponentType as ReactComponentType } from 'react';
 import { DataSource } from '../data/FakeDataSource';
+import { getDisplayName } from './Utility';
 
 interface ReactComponentTypeProps {
   [propertyName: string]: any,
@@ -41,6 +42,10 @@ export default function HigherOrderComponent(
 
     componentWillUnmount() {
       currentDataSource.removeChangeListener(this.handleDataChange);
+    }
+
+    public static get displayName(): string {
+      return `HigherOrderComponent(${getDisplayName(WrappedComponent)})`;
     }
 
     public handleDataChange() {
