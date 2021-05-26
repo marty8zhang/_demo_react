@@ -12,20 +12,21 @@ interface HigherOrderComponentsProps extends RouteComponentProps<{
 }> {}
 interface State {}
 
+const BlogListWithChangeSubscription = HigherOrderComponent(
+  BlogList,
+  ((dataSource, props) => dataSource.getAll()),
+  fakeDataSource,
+  'blogs',
+);
+const BlogWithChangeSubscription = HigherOrderComponent(
+  Blog,
+  ((dataSource, props) => dataSource.getOne(props.uri)),
+  fakeDataSource,
+  'blog',
+);
+
 class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, State> {
   render(): ReactNode {
-    const BlogListWithChangeSubscription = HigherOrderComponent(
-      BlogList,
-      ((dataSource, props) => dataSource.getAll()),
-      fakeDataSource,
-      'blogs',
-    );
-    const BlogWithChangeSubscription = HigherOrderComponent(
-      Blog,
-      ((dataSource, props) => dataSource.getOne(props.uri)),
-      fakeDataSource,
-      'blog',
-    );
     // Get the current `uri` from the features offered by the `react-router` package.
     const { match: { params: { uri = null } = {} } = {} } = this.props;
 
