@@ -5,6 +5,7 @@ import { FunctionComponentPageTitle } from '../components/PageTitle';
 import HigherOrderComponent from '../components/HigherOrderComponent';
 import BlogList from '../components/BlogList';
 import Blog from '../components/Blog';
+import { fakeDataSource } from '../data/FakeDataSource';
 
 interface HigherOrderComponentsProps extends RouteComponentProps<{
   uri?: string,
@@ -15,17 +16,18 @@ class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, 
   render(): ReactNode {
     const BlogListWithChangeSubscription = HigherOrderComponent(
       BlogList,
-      ((dataSource, props) => dataSource.getBlogs()),
+      ((dataSource, props) => dataSource.getAll()),
+      fakeDataSource,
       'blogs',
     );
     const BlogWithChangeSubscription = HigherOrderComponent(
       Blog,
-      ((dataSource, props) => dataSource.getBlog(props.uri)),
+      ((dataSource, props) => dataSource.getOne(props.uri)),
+      fakeDataSource,
       'blog',
     );
+    // Get the current `uri` from the features offered by the `react-router` package.
     const { match: { params: { uri = null } = {} } = {} } = this.props;
-    // eslint-disable-next-line react/destructuring-assignment
-    console.log(this.props.match);
 
     return (
       <>
@@ -54,4 +56,6 @@ class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, 
   }
 }
 
+// `withRouter()` is another example of higher-order components which makes the wrapped component
+// aware of the current uri, etc.
 export default withRouter(HigherOrderComponents);

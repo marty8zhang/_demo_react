@@ -1,21 +1,21 @@
-export interface Blog {
-  uri: string,
-  title: string,
-  content: string,
-}
-
 export interface DataSource {
-  getBlogs(): Blog[];
+  getAll(): any[];
 
-  getBlog(uri?: string): Blog | null;
+  getOne(id?: string): any | null;
 
   addChangeListener(listener: () => void): void;
 
   removeChangeListener(listener: () => void): void;
 }
 
+export interface Blog {
+  uri: string,
+  title: string,
+  content: string,
+}
+
 export default class FakeDataSource implements DataSource {
-  getBlogs(): Blog[] {
+  getAll(): Blog[] {
     return [
       {
         uri: 'fake-blog-one',
@@ -35,12 +35,12 @@ export default class FakeDataSource implements DataSource {
     ];
   }
 
-  getBlog(uri?: string): Blog | null {
+  getOne(uri?: string): Blog | null {
     if (uri === null) {
-      return this.getBlogs()[0];
+      return this.getAll()[0];
     }
 
-    return this.getBlogs().reduce(
+    return this.getAll().reduce(
       (result: Blog | null, blog: Blog) => (result || (uri === blog.uri ? blog : null)),
       null,
     );

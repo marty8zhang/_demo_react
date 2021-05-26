@@ -1,5 +1,5 @@
 import React, { ComponentType as ReactComponentType } from 'react';
-import { DataSource, fakeDataSource } from '../data/FakeDataSource';
+import { DataSource } from '../data/FakeDataSource';
 
 interface ReactComponentTypeProps {
   [propertyName: string]: any,
@@ -8,7 +8,8 @@ interface ReactComponentTypeProps {
 
 export default function HigherOrderComponent(
   /*
-   * Note: Using `ReactComponentTypeProps` instead of `any` below will give us:
+   * Note: Using `ReactComponentType<ReactComponentTypeProps>` instead of `ReactComponentType<any>`
+   * below will give us:
    * > Property 'blogs' is missing in type 'ReactComponentTypeProps' but required in type
    * > 'Readonly<BlogListProps>'.
    * , when calling `HigherOrderComponent(BlogList, ...)`. The issue might be caused by React, but
@@ -16,6 +17,7 @@ export default function HigherOrderComponent(
    */
   WrappedComponent: ReactComponentType<any>,
   dataRetriever: (dataSource: DataSource, props: ReactComponentTypeProps) => any,
+  currentDataSource: DataSource,
   dataPropertyName: string,
 ): ReactComponentType<ReactComponentTypeProps> {
   interface State {
@@ -29,21 +31,21 @@ export default function HigherOrderComponent(
       this.handleDataChange = this.handleDataChange.bind(this);
 
       this.state = {
-        data: dataRetriever(fakeDataSource, props),
+        data: dataRetriever(currentDataSource, props),
       };
     }
 
     componentDidMount() {
-      fakeDataSource.addChangeListener(this.handleDataChange);
+      currentDataSource.addChangeListener(this.handleDataChange);
     }
 
     componentWillUnmount() {
-      fakeDataSource.removeChangeListener(this.handleDataChange);
+      currentDataSource.removeChangeListener(this.handleDataChange);
     }
 
     public handleDataChange() {
       this.setState({
-        data: dataRetriever(fakeDataSource, this.props),
+        data: dataRetriever(currentDataSource, this.props),
       });
     }
 
@@ -51,6 +53,10 @@ export default function HigherOrderComponent(
       const { data } = this.state;
 
       return (
+        /*
+         * `WrappedComponent` receives all the `props` of the container, along with a new property,
+         * `[dataPropertyName]`, which it can use to render its output.
+         */
         // eslint-disable-next-line react/jsx-props-no-spreading
         <WrappedComponent {...{ ...this.props, [dataPropertyName]: data }} />
       );
