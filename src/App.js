@@ -18,6 +18,7 @@ import ErrorBoundaries from './pages/ErrorBoundaries';
 import ForwardingRefs from './pages/ForwardingRefs';
 import Fragments from './pages/Fragments';
 import HigherOrderComponents from './pages/HigherOrderComponents';
+import Portals from './pages/Portals';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -144,6 +145,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/higher-order-components/:uri?">
                   <HigherOrderComponents />
+                </Route>
+                <Route path="/portals">
+                  <Portals />
                 </Route>
                 <Route path="/login">
                   <LogIn

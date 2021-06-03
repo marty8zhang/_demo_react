@@ -28,6 +28,7 @@ const BlogWithChangeSubscription = HigherOrderComponent(
 class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, State> {
   render(): ReactNode {
     // Get the current `uri` from the features offered by the `react-router` package.
+    // The `uri` prop is defined via the `path` prop of a `<Route />`.
     const { match: { params: { uri = null } = {} } = {} } = this.props;
 
     return (
