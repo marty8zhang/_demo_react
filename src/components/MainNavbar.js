@@ -32,6 +32,7 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/fragments">`Fragment`s</Nav.Link>
             <Nav.Link as={NavLink} to="/higher-order-components">Higher-Order Components</Nav.Link>
             <Nav.Link as={NavLink} to="/portals">Portals</Nav.Link>
+            <Nav.Link as={NavLink} to="/refs-and-the-dom">`ref`s & the Dom</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <NavbarAccountInformation

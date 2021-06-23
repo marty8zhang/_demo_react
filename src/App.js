@@ -19,6 +19,7 @@ import ForwardingRefs from './pages/ForwardingRefs';
 import Fragments from './pages/Fragments';
 import HigherOrderComponents from './pages/HigherOrderComponents';
 import Portals from './pages/Portals';
+import RefsAndTheDom from './pages/RefsAndTheDom';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -148,6 +149,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/portals">
                   <Portals />
+                </Route>
+                <Route path="/refs-and-the-dom">
+                  <RefsAndTheDom />
                 </Route>
                 <Route path="/login">
                   <LogIn
