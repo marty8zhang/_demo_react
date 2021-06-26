@@ -14,7 +14,7 @@ export default class MainNavbar extends React.Component {
     } = this.props;
 
     return (
-      <Navbar expand="lg">
+      <Navbar expand="true">
         <Navbar.Toggle aria-controls="app-navbar-nav" />
         <Navbar.Collapse id="app-navbar-nav">
           <Nav>

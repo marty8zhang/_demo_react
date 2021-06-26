@@ -44,7 +44,7 @@ export default class RefsAndTheDom extends React.Component<Props, State> {
         <Container fluid>
           <Row>
             <Col>
-              <FunctionComponentPageTitle pageTitle="`Fragment`s" />
+              <FunctionComponentPageTitle pageTitle="`ref`s & the DOM" />
             </Col>
           </Row>
         </Container>
