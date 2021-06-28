@@ -20,6 +20,7 @@ export default function HigherOrderComponent(
   dataRetriever: (dataSource: DataSource, props: ReactComponentTypeProps) => any,
   currentDataSource: DataSource,
   dataPropertyName: string,
+  changeTriggerPropertyName: string|null = null,
 ): ReactComponentType<ReactComponentTypeProps> {
   interface State {
     data: any,
@@ -38,6 +39,19 @@ export default function HigherOrderComponent(
 
     componentDidMount() {
       currentDataSource.addChangeListener(this.handleDataChange);
+    }
+
+    componentDidUpdate(prevProps: Readonly<ReactComponentTypeProps>) {
+      if (!changeTriggerPropertyName) {
+        return;
+      }
+
+      const { [changeTriggerPropertyName]: currentPropsChangeTriggerValue = null } = this.props;
+      if (prevProps[changeTriggerPropertyName] === currentPropsChangeTriggerValue) {
+        return;
+      }
+
+      this.handleDataChange();
     }
 
     componentWillUnmount() {

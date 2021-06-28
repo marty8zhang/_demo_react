@@ -20,9 +20,10 @@ const BlogListWithChangeSubscription = HigherOrderComponent(
 );
 const BlogWithChangeSubscription = HigherOrderComponent(
   Blog,
-  ((dataSource, props) => dataSource.getOne(props.uri)),
+  ((dataSource, props) => dataSource.getOne(props.currentUri)),
   fakeDataSource,
   'blog',
+  'currentUri',
 );
 
 class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, State> {
@@ -43,7 +44,7 @@ class HigherOrderComponents extends React.Component<HigherOrderComponentsProps, 
         <Container fluid>
           <Row>
             <Col sm={8}>
-              <BlogWithChangeSubscription uri={uri} />
+              <BlogWithChangeSubscription currentUri={uri} />
             </Col>
             <Col sm={4}>
               <BlogListWithChangeSubscription
