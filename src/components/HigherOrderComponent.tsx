@@ -2,7 +2,7 @@ import React, { ComponentType as ReactComponentType } from 'react';
 import { DataSource } from '../data/FakeDataSource';
 import { getDisplayName } from './Utility';
 
-interface ReactComponentTypeProps {
+export interface ReactComponentTypeProps {
   [propertyName: string]: any,
   [propertyName: number]: any,
 }
