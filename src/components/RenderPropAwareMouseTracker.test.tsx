@@ -5,22 +5,6 @@ import RenderPropAwareMouseTracker from './RenderPropAwareMouseTracker';
 
 let container: HTMLDivElement | null = null;
 
-beforeEach(() => {
-  container = document.createElement('div');
-  container.appendChild(document.createElement('p'));
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  if (!container) {
-    return;
-  }
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
 it('tracks mouse movement with render prop', () => {
   if (!container) {
     return;
@@ -52,4 +36,19 @@ it('tracks mouse movement with render prop', () => {
     tracker?.dispatchEvent(mouseMoveEvent);
   });
   expect(container.textContent).toContain('12, 34');
+});
+
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  if (!container) {
+    return;
+  }
+
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });

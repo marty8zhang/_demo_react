@@ -5,22 +5,6 @@ import { Fragment, ShorthandFragment, KeyedFragment } from './Fragments';
 
 let container: HTMLDivElement | null = null;
 
-beforeEach(() => {
-  container = document.createElement('div');
-  container.appendChild(document.createElement('p'));
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  if (!container) {
-    return;
-  }
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
 it('renders all three fragments', () => {
   if (!container) {
     return;
@@ -43,4 +27,19 @@ it('renders all three fragments', () => {
   });
   expect(container.textContent).toContain('Keyed Fragment Item 1');
   expect(container.textContent).toContain('Keyed Fragment Item 2');
+});
+
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  if (!container) {
+    return;
+  }
+
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });

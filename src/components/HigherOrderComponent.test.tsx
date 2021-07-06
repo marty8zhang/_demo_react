@@ -2,10 +2,9 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import HigherOrderComponent, { ReactComponentTypeProps } from './HigherOrderComponent';
-import {
+import MockedDataSource, {
   // @ts-ignore
-  // eslint-disable-next-line import/no-named-default
-  default as MockedDataSource, mockedAddChangeListener, mockedRemoveChangeListener,
+  mockedAddChangeListener, mockedRemoveChangeListener,
 } from '../data/FakeDataSource';
 
 jest.mock('../data/FakeDataSource');
@@ -101,7 +100,6 @@ beforeEach(() => {
   mockedRemoveChangeListener.mockClear();
 
   container = document.createElement('div');
-  container.appendChild(document.createElement('p'));
   document.body.appendChild(container);
 });
 
