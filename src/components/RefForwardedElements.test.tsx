@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { RefForwardedH2, RefForwardedP } from './RefForwardedElements';
 
-let container: HTMLDivElement | null = null;
+declare let container: HTMLDivElement;
 const h2Ref = React.createRef<HTMLHeadingElement>();
 const pRef = React.createRef<HTMLParagraphElement>();
 
@@ -27,19 +27,4 @@ it('matches with the paragraph snapshot', () => {
     );
   });
   expect(pRef.current?.outerHTML).toMatchSnapshot();
-});
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  if (!container) {
-    return;
-  }
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
 });

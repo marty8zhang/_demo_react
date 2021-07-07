@@ -1,15 +1,11 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import RenderPropAwareMouseTracker from './RenderPropAwareMouseTracker';
 
-let container: HTMLDivElement | null = null;
+declare let container: HTMLDivElement;
 
 it('tracks mouse movement with render prop', () => {
-  if (!container) {
-    return;
-  }
-
   act(() => {
     render(<RenderPropAwareMouseTracker
       render={(mousePosition) => `${mousePosition.x}, ${mousePosition.y}`}
@@ -36,19 +32,4 @@ it('tracks mouse movement with render prop', () => {
     tracker?.dispatchEvent(mouseMoveEvent);
   });
   expect(container.textContent).toContain('12, 34');
-});
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  if (!container) {
-    return;
-  }
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
 });

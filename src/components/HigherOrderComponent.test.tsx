@@ -9,7 +9,7 @@ import MockedDataSource, {
 
 jest.mock('../data/FakeDataSource');
 
-let container: HTMLDivElement | null = null;
+declare let container: HTMLDivElement;
 
 const DummyComponent = (props: ReactComponentTypeProps) => {
   const { testData: { id = '', message = '' } = {} } = props;
@@ -67,10 +67,6 @@ const MockedHigherOrderComponent = HigherOrderComponent(
 );
 
 it('renders and updates higher order component', () => {
-  if (!container) {
-    return;
-  }
-
   act(() => {
     render(<MockedHigherOrderComponent id="123" />, container);
   });
@@ -98,17 +94,4 @@ beforeEach(() => {
   mockedDataRetriever.mockClear();
   mockedAddChangeListener.mockClear();
   mockedRemoveChangeListener.mockClear();
-
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  if (!container) {
-    return;
-  }
-
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
 });
