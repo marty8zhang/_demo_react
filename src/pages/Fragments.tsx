@@ -3,8 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FunctionComponentPageTitle } from '../components/PageTitle';
 import { Fragment, KeyedFragment, ShorthandFragment } from '../components/Fragments';
 
-type Props = {};
-type State = {};
+interface Props {}
+interface State {}
 
 export default class Fragments extends React.Component<Props, State> {
   render(): ReactNode {

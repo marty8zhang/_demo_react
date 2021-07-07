@@ -21,6 +21,7 @@ import HigherOrderComponents from './pages/HigherOrderComponents';
 import Portals from './pages/Portals';
 import RefsAndTheDom from './pages/RefsAndTheDom';
 import RenderProps from './pages/RenderProps';
+import UncontrolledComponents from './pages/UncontrolledComponents';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -156,6 +157,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/render-props">
                   <RenderProps />
+                </Route>
+                <Route path="/uncontrolled-components">
+                  <UncontrolledComponents />
                 </Route>
                 <Route path="/login">
                   <LogIn
