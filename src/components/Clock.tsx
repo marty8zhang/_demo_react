@@ -1,7 +1,14 @@
 import React from 'react';
 
-export default class Clock extends React.Component {
-  constructor(props) {
+interface Props {}
+interface State {
+  date: Date;
+}
+
+export default class Clock extends React.Component<Props, State> {
+  private intervalId?: ReturnType<typeof setInterval>;
+
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -12,12 +19,14 @@ export default class Clock extends React.Component {
   componentDidMount() {
     this.intervalId = setInterval(
       () => this.tick(),
-      1000,
+      100,
     );
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalId);
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   tick() {

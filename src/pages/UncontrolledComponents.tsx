@@ -44,7 +44,7 @@ export default class UncontrolledComponents extends React.Component<Props, State
         <Container fluid>
           <Row>
             <Col>
-              <FunctionComponentPageTitle pageTitle="`Fragment`s" />
+              <FunctionComponentPageTitle pageTitle="Uncontrolled Components" />
             </Col>
           </Row>
         </Container>
