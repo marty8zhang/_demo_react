@@ -35,6 +35,7 @@ export default class MainNavbar extends React.Component {
             <Nav.Link as={NavLink} to="/refs-and-the-dom">`ref`s & the Dom</Nav.Link>
             <Nav.Link as={NavLink} to="/render-props">Render Props</Nav.Link>
             <Nav.Link as={NavLink} to="/uncontrolled-components">Uncontrolled Components</Nav.Link>
+            <Nav.Link as={NavLink} to="/hooks">Hooks</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <NavbarAccountInformation

@@ -22,6 +22,7 @@ import Portals from './pages/Portals';
 import RefsAndTheDom from './pages/RefsAndTheDom';
 import RenderProps from './pages/RenderProps';
 import UncontrolledComponents from './pages/UncontrolledComponents';
+import Hooks from './pages/Hooks';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -160,6 +161,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/uncontrolled-components">
                   <UncontrolledComponents />
+                </Route>
+                <Route path="/hooks">
+                  <Hooks />
                 </Route>
                 <Route path="/login">
                   <LogIn
