@@ -1,22 +1,39 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import {
   Container, Row, Col, Form, Button,
 } from 'react-bootstrap';
 import { FunctionComponentPageTitle } from '../components/PageTitle';
 
-type Props = {};
-type State = {};
+interface Props {}
+interface State {}
+
+class RefOnClassInstance extends React.Component<any, any> {
+  public testInstanceMethod() {
+    console.log('`RefOnClassInstance.testInstanceMethod()` called.');
+  }
+
+  render() {
+    return null;
+  }
+}
 
 export default class RefsAndTheDom extends React.Component<Props, State> {
+  private readonly classInstance: RefObject<RefOnClassInstance>;
+
   private textInput: HTMLInputElement | null;
 
   constructor(props: Props) {
     super(props);
 
+    this.classInstance = React.createRef();
     this.textInput = null;
 
-    this.triggerCallbackRefOnTextInput = this.triggerCallbackRefOnTextInput.bind(this);
+    this.setTextInputReferenceByCallbackRef = this.setTextInputReferenceByCallbackRef.bind(this);
     this.focusTextInput = this.focusTextInput.bind(this);
+  }
+
+  componentDidMount() {
+    this.classInstance.current?.testInstanceMethod();
   }
 
   /**
@@ -28,7 +45,7 @@ export default class RefsAndTheDom extends React.Component<Props, State> {
    *     function is created with each `render()`, so React needs to clear the old `ref` and set
    *     up the new one.
    */
-  private triggerCallbackRefOnTextInput(element: HTMLInputElement | null): void {
+  private setTextInputReferenceByCallbackRef(element: HTMLInputElement | null): void {
     this.textInput = element;
   }
 
@@ -50,10 +67,25 @@ export default class RefsAndTheDom extends React.Component<Props, State> {
         </Container>
         <Container fluid>
           <Row>
+            <Col>
+              { /*
+                 * Note that a `ref` can be directly passed to a class component instance, then
+                 * the `ref` creating component will be able to access the public members of that
+                 * instance. E.g., check `componentDidMount()` above.
+                 * However, the instance itself will have no access to the `ref`.
+                 */ }
+              <RefOnClassInstance
+                ref={this.classInstance}
+              />
+            </Col>
+          </Row>
+        </Container>
+        <Container fluid>
+          <Row>
             <Col sm={3}>
               <Form.Control
                 type="text"
-                ref={this.triggerCallbackRefOnTextInput}
+                ref={this.setTextInputReferenceByCallbackRef}
               />
             </Col>
             <Col xs="auto">
