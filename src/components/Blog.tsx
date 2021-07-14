@@ -3,7 +3,7 @@ import { Blog as BlogData } from '../data/FakeDataSource';
 
 interface BlogProps {
   currentUri: string,
-  blog: BlogData,
+  blog: BlogData | null,
 }
 interface BlogState {}
 

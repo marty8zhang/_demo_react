@@ -104,9 +104,9 @@ export default class App extends React.Component {
             <main>
               <Switch>
                 {/*
-                * Without `exact` here, the default fuzzy matching behaviour will match any URL
-                * to `/`.
-                */}
+                  * Without `exact` here, the default fuzzy matching behaviour will match any URL
+                  * to `/`.
+                  */}
                 <Route path="/" exact>
                   <Home />
                 </Route>
@@ -175,9 +175,9 @@ export default class App extends React.Component {
                   />
                 </Route>
                 {/*
-                * The `NotFound` page must be the last one on the list, because it's basically
-                * a match for any URL. Any `Route` after it hence won't be checked anymore.
-                */}
+                  * The `NotFound` page must be the last one on the list, because it's basically
+                  * a match for any URL. Any `Route` after it hence won't be checked anymore.
+                  */}
                 <Route>
                   <NotFound pageTitle="Page Not Found" />
                 </Route>
