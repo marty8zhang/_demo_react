@@ -6,11 +6,12 @@
   "author": "Marty Zhang <marty8zhang@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "coverage": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "start": "yarn lint && react-scripts start",
+    "build": "yarn lint && react-scripts build",
+    "test": "yarn lint && react-scripts test",
+    "coverage": "yarn lint && react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix --ext \".js,.jsx,.ts,.tsx\" \"./src\""
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -65,4 +65,5 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: ['src/add-react-to-a-website/**'],
 };

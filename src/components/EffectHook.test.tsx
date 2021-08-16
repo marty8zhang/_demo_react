@@ -1,7 +1,7 @@
 import React from 'react';
-import {render, unmountComponentAtNode} from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import EffectHook from "./EffectHook";
+import EffectHook from './EffectHook';
 
 declare let container: HTMLDivElement;
 
