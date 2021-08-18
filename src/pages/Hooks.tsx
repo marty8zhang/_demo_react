@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FunctionComponentPageTitle } from '../components/PageTitle';
-import StateHook from '../components/StateHook';
-import EffectHook from '../components/EffectHook';
-import ContextHook from '../components/ContextHook';
+import StateHook from '../hooks/StateHook';
+import EffectHook from '../hooks/EffectHook';
+import ContextHook from '../hooks/ContextHook';
 
 interface Props {}
 interface State {
@@ -49,7 +49,7 @@ export default class Hooks extends React.Component<Props, State> {
             </Col>
           </Row>
         </Container>
-        <Container fluid>
+        <Container fluid className="mb-5">
           <Row>
             <Col><h2>State Hook</h2></Col>
           </Row>
@@ -60,7 +60,7 @@ export default class Hooks extends React.Component<Props, State> {
             </Col>
           </Row>
         </Container>
-        <Container fluid>
+        <Container fluid className="mb-5">
           <Row>
             <Col><h2>Effect Hook</h2></Col>
           </Row>
@@ -70,7 +70,7 @@ export default class Hooks extends React.Component<Props, State> {
             </Col>
           </Row>
         </Container>
-        <Container fluid>
+        <Container fluid className="mb-5">
           <Row>
             <Col><h2>Context Hook</h2></Col>
           </Row>
