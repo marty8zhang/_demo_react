@@ -4,6 +4,7 @@ import { FunctionComponentPageTitle } from '../components/PageTitle';
 import StateHook from '../hooks/StateHook';
 import EffectHook from '../hooks/EffectHook';
 import ContextHook from '../hooks/ContextHook';
+import ReducerHook from '../hooks/ReducerHook';
 
 interface Props {}
 interface State {
@@ -79,6 +80,16 @@ export default class Hooks extends React.Component<Props, State> {
               <ContextHookContext.Provider value={testContextValue}>
                 <ContextHook />
               </ContextHookContext.Provider>
+            </Col>
+          </Row>
+        </Container>
+        <Container fluid className="mb-5">
+          <Row>
+            <Col><h2>Reducer Hook</h2></Col>
+          </Row>
+          <Row>
+            <Col>
+              <ReducerHook initialCount={0} />
             </Col>
           </Row>
         </Container>

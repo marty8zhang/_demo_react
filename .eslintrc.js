@@ -32,6 +32,29 @@ module.exports = {
     'no-undef': 0,
     'no-unused-expressions': 0,
     'no-unused-vars': 0,
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': 1,
+    'react/no-did-update-set-state': 'warn',
+    'react/prefer-stateless-function': 'warn',
+    'react/button-has-type': [
+      1,
+      {
+        button: true,
+        submit: true,
+        reset: true,
+      },
+    ],
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: [
+          '.tsx',
+          '.ts',
+          '.jsx',
+          '.js',
+        ],
+      },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -42,20 +65,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/jsx-filename-extension': [1,
-      {
-        extensions: [
-          '.tsx',
-          '.ts',
-          '.jsx',
-          '.js',
-        ],
-      },
-    ],
-    'react/no-did-update-set-state': 'warn',
-    'react/prefer-stateless-function': 'warn',
-    'no-use-before-define': 0,
-    '@typescript-eslint/no-use-before-define': 1,
   },
   settings: {
     'import/resolver': {
