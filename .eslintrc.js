@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'airbnb',
   ],
   globals: {
@@ -36,6 +37,8 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 1,
     'react/no-did-update-set-state': 'warn',
     'react/prefer-stateless-function': 'warn',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/button-has-type': [
       1,
       {

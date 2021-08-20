@@ -5,6 +5,7 @@ import StateHook from '../hooks/StateHook';
 import EffectHook from '../hooks/EffectHook';
 import ContextHook from '../hooks/ContextHook';
 import ReducerHook from '../hooks/ReducerHook';
+import RefHook from '../hooks/RefHook';
 
 interface Props {}
 interface State {
@@ -90,6 +91,16 @@ export default class Hooks extends React.Component<Props, State> {
           <Row>
             <Col>
               <ReducerHook initialCount={0} />
+            </Col>
+          </Row>
+        </Container>
+        <Container fluid className="mb-5">
+          <Row>
+            <Col><h2>Ref Hook</h2></Col>
+          </Row>
+          <Row>
+            <Col>
+              <RefHook />
             </Col>
           </Row>
         </Container>
