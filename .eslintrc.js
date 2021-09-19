@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    'jest/globals': true,
   },
   extends: [
     'plugin:react/recommended',
@@ -24,13 +25,13 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'jest',
   ],
   rules: {
     'class-methods-use-this': 'warn',
     'comma-dangle': ['warn', 'always-multiline'],
     'max-classes-per-file': 'warn',
     'max-len': 'warn',
-    'no-undef': 'warn',
     'no-underscore-dangle': 'warn',
     'no-unused-expressions': 'warn',
     'no-unused-vars': 'warn',
