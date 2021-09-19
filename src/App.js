@@ -23,6 +23,7 @@ import RefsAndTheDom from './pages/RefsAndTheDom';
 import RenderProps from './pages/RenderProps';
 import UncontrolledComponents from './pages/UncontrolledComponents';
 import Hooks from './pages/Hooks';
+import _Tests from './pages/_Tests';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -109,6 +110,9 @@ export default class App extends React.Component {
                   */}
                 <Route path="/" exact>
                   <Home />
+                </Route>
+                <Route path="/_tests">
+                  <_Tests />
                 </Route>
                 <Route path="/components-and-props">
                   <ComponentsAndProps />
